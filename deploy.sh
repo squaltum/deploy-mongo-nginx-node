@@ -48,3 +48,28 @@ do
                 sed -i "s/MONGOPASSWD/${MONGOVAR}/g" /opt/docker-apps/docker-compose.yml
         fi
 done < VARS
+
+while read line
+do
+        NODEVAR=$( echo ${line} |gawk -F"=" '{ print $1 }' )
+        if [ "${NODEVAR}" = "PATHNODE1" ];
+        then
+                NODEVAR=$( echo ${line} |gawk -F"=" '{ print $2 }' )
+                sed -i "s|PATHNODE1|${NODEVAR}|g" /opt/docker-apps/docker-compose.yml
+        fi
+        if [ "${NODEVAR}" = "PATHNODE2" ];
+        then
+                NODEVAR=$( echo ${line} |gawk -F"=" '{ print $2 }' )
+                sed -i "s|PATHNODE2|${NODEVAR}|g" /opt/docker-apps/docker-compose.yml
+        fi
+        if [ "${NODEVAR}" = "PATHNODE3" ];
+        then
+                NODEVAR=$( echo ${line} |gawk -F"=" '{ print $2 }' )
+                sed -i "s|PATHNODE3|${NODEVAR}|g" /opt/docker-apps/docker-compose.yml
+        fi
+        if [ "${NODEVAR}" = "PATHNODE4" ];
+        then
+                NODEVAR=$( echo ${line} |gawk -F"=" '{ print $2 }' )
+                sed -i "s|PATHNODE4|${NODEVAR}|g" /opt/docker-apps/docker-compose.yml
+        fi
+done < VARS
