@@ -73,3 +73,8 @@ do
                 sed -i "s|PATHNODE4|${NODEVAR}|g" /opt/docker-apps/docker-compose.yml
         fi
 done < VARS
+
+cd /opt/docker-apps/
+docker-compose up -d
+
+exit 0
