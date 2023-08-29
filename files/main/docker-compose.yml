@@ -1,0 +1,86 @@
+version: '3.3'
+services:
+
+  node-app1:
+    container_name: node-app1
+    restart: always
+    build:
+      context: ./node-app1/
+      #dockerfile: Dockerfile
+    env_file: ./node-app1/.env
+    #ports:
+    #  - "3000:3000"
+    depends_on:
+      - mongodb
+    environment:
+      WAIT_HOSTS: mongodb:27017
+
+  node-app2:
+    container_name: node-app2
+    restart: always
+    build:
+      context: ./node-app2/
+      #dockerfile: Dockerfile
+    env_file: ./node-app2/.env
+    #ports:
+    #  - "3000:3000"
+    depends_on:
+      - mongodb
+    environment:
+      WAIT_HOSTS: mongodb:27017
+
+  node-app3:
+    container_name: node-app3
+    restart: always
+    build:
+      context: ./node-app3/
+      #dockerfile: Dockerfile
+    env_file: ./node-app3/.env
+    #ports:
+    #  - "3000:3000"
+    depends_on:
+      - mongodb
+    environment:
+      WAIT_HOSTS: mongodb:27017
+
+  node-app4:
+    container_name: node-app4
+    restart: always
+    build:
+      context: ./node-app4/
+      #dockerfile: Dockerfile
+    env_file: ./node-app4/.env
+    #ports:
+    #  - "3000:3000"
+    depends_on:
+      - mongodb
+    environment:
+      WAIT_HOSTS: mongodb:27017
+
+  mongodb:
+    image: mongo:4.4
+    ports:
+      - '27017:27017'
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=MONGOROOTPASSWD
+      - MONGO_INITDB_DATABASE=MONGODB
+      - MONGO_INITDB_USERNAME=MONGOUSER
+      - MONGO_INITDB_PASSWORD=MONGOPASSWD
+    volumes:
+      - ./mongo-data:/data/db
+      - ./init-mongo.sh:/docker-entrypoint-initdb.d/init-mongo.sh
+    command: [--auth]
+    restart: always
+
+  nginx-ssl:
+    container_name: rundeck-ssl
+    image: tumsqual/nginx-ssl:latest
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /opt/nginx/config:/etc/nginx/conf.d
+      - /opt/nginx/ssl:/etc/nginx/certs
+      - /var/run/docker.sock:/tmp/docker.sock:ro
