@@ -1,7 +1,10 @@
 howto deploy : 
 1. git clone https://github.com/squaltum/deploy-mongo-nginx-node.git
 2. cd deploy-mongo-nginx-node/
-3. edit VARS file
+3. upload 4 nodejs into server
+4. add Dockerfile to all nodejs folders (see Example in this folder)
+   - edit Dockerfile (expose port, command start file)
+5. edit VARS file
    - vi VARS
-4. deploy
+6. deploy
    - sh deploy.sh
