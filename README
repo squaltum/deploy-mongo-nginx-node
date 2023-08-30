@@ -1,2 +1,7 @@
 howto deploy : 
-
+1. git clone https://github.com/squaltum/deploy-mongo-nginx-node.git
+2. cd deploy-mongo-nginx-node/
+3. edit VARS file
+   - vi VARS
+4. deploy
+   - sh deploy.sh

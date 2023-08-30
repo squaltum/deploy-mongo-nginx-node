@@ -74,7 +74,11 @@ do
         fi
 done < VARS
 
-cd /opt/docker-apps/
-docker-compose up -d
+echo ""
+echo "Deploy Done."
+echo "!!!!!!!!!!!!"
+echo "up docker by command below"
+echo "cd /opt/docker-apps/"
+echo "docker-compose up -d || docker compose up -d"
 
 exit 0
