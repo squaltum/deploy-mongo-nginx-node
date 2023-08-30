@@ -1,4 +1,8 @@
-howto deploy : 
+Preriquisites:
+1. server must have command git, docker, docker-compose (if docker version less than 20)
+2. run below as root user
+
+Howto deploy : 
 1. git clone https://github.com/squaltum/deploy-mongo-nginx-node.git
 2. cd deploy-mongo-nginx-node/
 3. upload 4 nodejs into server
