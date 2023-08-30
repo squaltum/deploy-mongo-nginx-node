@@ -6,10 +6,10 @@ services:
     restart: always
     build:
       context: PATHNODE1
-      #dockerfile: Dockerfile
-    env_file: PATHNODE1/.env
+      dockerfile: Dockerfile
     #ports:
-    #  - "3000:3000"
+    #  - "4000:4000"
+    working_dir: /app
     depends_on:
       - mongodb
     environment:
@@ -20,10 +20,10 @@ services:
     restart: always
     build:
       context: PATHNODE2
-      #dockerfile: Dockerfile
-    env_file: PATHNODE2/.env
+      dockerfile: Dockerfile
     #ports:
-    #  - "3000:3000"
+    #  - "80:80"
+    working_dir: /app
     depends_on:
       - mongodb
     environment:
@@ -34,10 +34,10 @@ services:
     restart: always
     build:
       context: PATHNODE3
-      #dockerfile: Dockerfile
-    env_file: PATHNODE3/.env
+      dockerfile: Dockerfile
     #ports:
-    #  - "3000:3000"
+    #  - "4105:4105"
+    working_dir: /app
     depends_on:
       - mongodb
     environment:
@@ -48,10 +48,10 @@ services:
     restart: always
     build:
       context: PATHNODE4
-      #dockerfile: Dockerfile
-    env_file: PATHNODE4/.env
+      dockerfile: Dockerfile
     #ports:
-    #  - "3000:3000"
+    #  - "4000:4000"
+    working_dir: /app
     depends_on:
       - mongodb
     environment:
