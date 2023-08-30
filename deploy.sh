@@ -4,7 +4,7 @@ mkdir -p /opt/docker-apps/mongo-data
 chown 999 /opt/docker-apps/mongo-data
 cp ./files/mongo/init-mongo.sh /opt/docker-apps/
 
-mkdir -p /opt/nginx/{config,ssl}
+mkdir -p /opt/nginx/config /opt/nginx/ssl
 cp ./files/nginx/config/default.conf ./files/nginx/config/nginx.conf /opt/nginx/config/
 
 cp ./files/main/docker-compose.yml /opt/docker-apps/
